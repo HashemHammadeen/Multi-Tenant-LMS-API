@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  # Fix: Removed extra ")" and fixed indentation
+  database: <%= ENV.fetch("DB_NAME") %>
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+
+test:
+  <<: *default
+  database: task2_test
+
+production:
+  primary: &primary_production
+    <<: *default
+    database: task2_production
+    username: task2
+    password: <%= ENV["TASK2_DATABASE_PASSWORD"] %>
+  # ... rest of your production config is fine

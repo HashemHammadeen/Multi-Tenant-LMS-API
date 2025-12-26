@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school: one
+  email: MyString
+  name: MyString
+  role: 1
+  active: false
+
+two:
+  school: two
+  email: MyString
+  name: MyString
+  role: 1
+  active: false
